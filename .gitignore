@@ -1,0 +1,23 @@
+# Python build output and caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local previews and rendered output
+preview*.html
+*.png
+
+# Local config and secrets (keep keys, tokens and passwords here, never in code)
+.env
+.env.*
+config.local.*
+secrets.*
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/

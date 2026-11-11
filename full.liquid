@@ -1,0 +1,108 @@
+<style>
+  .ps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+  }
+  .ps-team {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 6px 14px 10px;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .ps-team:nth-child(odd)  { border-right: 2px solid #000; padding-left: 4px; }
+  .ps-team:nth-child(even) { padding-right: 4px; }
+  .ps-team:nth-child(-n+2) { border-bottom: 2px solid #000; }
+  .ps-team:nth-child(n+3)  { padding-top: 10px; }
+
+  .ps-head { display: flex; align-items: center; gap: 10px; }
+  .ps-logo { width: 64px; height: 64px; object-fit: contain; filter: grayscale(1) contrast(1.15); flex-shrink: 0; }
+  .ps-head-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .ps-head-text .description { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .ps-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+  .ps-col { display: flex; flex-direction: column; justify-content: flex-start; gap: 6px; min-width: 0; }
+  .ps-col + .ps-col { border-left: 1px solid #000; padding-left: 12px; }
+
+  .ps-score { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .ps-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border: 2px solid #000; border-radius: 5px; flex-shrink: 0;
+  }
+  .ps-badge--W { background: #000; }
+  .ps-badge--W .label { color: #fff; }
+  .ps-live { background: #000; padding: 2px 6px; border-radius: 4px; align-self: flex-start; }
+  .ps-live .label { color: #fff; }
+
+  .ps-opp { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .ps-opp-logo { width: 38px; height: 38px; object-fit: contain; filter: grayscale(1) contrast(1.15); flex-shrink: 0; }
+  .ps-col .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+</style>
+
+<div class="layout" style="padding: 0;">
+  {% unless teams.first %}
+  <div class="title" style="margin: auto;">No data yet: check the Serverless tab and View Logs</div>
+  {% endunless %}
+  <div class="ps-grid">
+    {% for team in teams %}
+    <div class="ps-team">
+      <div class="ps-head">
+        <img class="ps-logo" src="{{ team.logo }}" alt="{{ team.name }}">
+        <div class="ps-head-text">
+          <span class="title">{{ team.name }}</span>
+          <span class="description">{{ team.standing | default: team.league }}</span>
+        </div>
+        <span class="value value--xsmall">{{ team.record }}</span>
+      </div>
+
+      <div class="ps-body">
+        {%- comment -%} Left column: a live game if one is on, otherwise the last result {%- endcomment -%}
+        <div class="ps-col">
+          {% if team.live %}
+            <div class="ps-live"><span class="label label--small">LIVE</span></div>
+            <span class="value value--small">{{ team.live.us }}–{{ team.live.them }}</span>
+            <span class="label">{{ team.live.ha }} {{ team.live.opp }}</span>
+            <span class="label">{{ team.live.clock }}</span>
+          {% elsif team.last %}
+            <span class="label label--small">LAST GAME</span>
+            <div class="ps-score">
+              <span class="ps-badge ps-badge--{{ team.last.result }}"><span class="label">{{ team.last.result }}</span></span>
+              <span class="value value--small">{{ team.last.us }}–{{ team.last.them }}</span>
+              {% if team.last.extra != "" %}<span class="label">{{ team.last.extra }}</span>{% endif %}
+            </div>
+            <span class="label">{{ team.last.ha }} {{ team.last.opp }}</span>
+            <span class="label">{{ team.last.date }}</span>
+          {% else %}
+            <span class="label label--small">LAST GAME</span>
+            <span class="label">No recent games</span>
+          {% endif %}
+        </div>
+
+        <div class="ps-col">
+          {% if team.next %}
+            <span class="label label--small">{{ team.next.label | upcase }}</span>
+            <div class="ps-opp">
+              <img class="ps-opp-logo" src="{{ team.next.opp_logo }}" alt="{{ team.next.opp }}">
+              <span class="label">{{ team.next.ha }} {{ team.next.opp }}</span>
+            </div>
+            <span class="label">{{ team.next.date }}</span>
+            <span class="label">{{ team.next.time }}{% if team.next.tv != "" %} · {{ team.next.tv }}{% endif %}</span>
+          {% else %}
+            <span class="label label--small">NEXT GAME</span>
+            <span class="label">Schedule TBD</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="title_bar">
+  <span class="title">Philly Sports</span>
+  <span class="instance">Updated {{ updated_at }}</span>
+</div>

@@ -1,0 +1,125 @@
+{
+  "teams": [
+    {
+      "key": "eagles",
+      "name": "Eagles",
+      "league": "NFL",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png",
+      "record": "2-4",
+      "standing": "2nd in NFC East",
+      "last": {
+        "opp": "CAR",
+        "opp_name": "Panthers",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png",
+        "ha": "vs",
+        "result": "L",
+        "us": "14",
+        "them": "25",
+        "extra": "",
+        "date": "Sun 10/18"
+      },
+      "live": null,
+      "next": {
+        "opp": "DAL",
+        "opp_name": "Cowboys",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png",
+        "ha": "vs",
+        "label": "Next game",
+        "date": "Mon 10/26",
+        "time": "8:15 PM",
+        "tv": "ESPN"
+      }
+    },
+    {
+      "key": "phillies",
+      "name": "Phillies",
+      "league": "MLB",
+      "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/phi.png",
+      "record": "88-74",
+      "standing": "2nd in NL East",
+      "last": {
+        "opp": "ATL",
+        "opp_name": "Braves",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/atl.png",
+        "ha": "@",
+        "result": "L",
+        "us": "2",
+        "them": "6",
+        "extra": "",
+        "date": "Thu 10/1"
+      },
+      "live": null,
+      "next": {
+        "opp": "DET",
+        "opp_name": "Tigers",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/mlb/500/scoreboard/det.png",
+        "ha": "@",
+        "label": "Preseason",
+        "date": "Fri Feb 19",
+        "time": "TBD",
+        "tv": ""
+      }
+    },
+    {
+      "key": "flyers",
+      "name": "Flyers",
+      "league": "NHL",
+      "logo": "https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/phi.png",
+      "record": "3-6-3",
+      "standing": "6th in Metropolitan Division",
+      "last": {
+        "opp": "BUF",
+        "opp_name": "Sabres",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/buf.png",
+        "ha": "@",
+        "result": "W",
+        "us": "3",
+        "them": "1",
+        "extra": "",
+        "date": "Yesterday"
+      },
+      "live": null,
+      "next": {
+        "opp": "ANA",
+        "opp_name": "Ducks",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/ana.png",
+        "ha": "vs",
+        "label": "Next game",
+        "date": "Sat 10/24",
+        "time": "1:00 PM",
+        "tv": "NHL Net"
+      }
+    },
+    {
+      "key": "sixers",
+      "name": "76ers",
+      "league": "NBA",
+      "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png",
+      "record": "1-0",
+      "standing": "1st in Atlantic Division",
+      "last": {
+        "opp": "NY",
+        "opp_name": "Knicks",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png",
+        "ha": "@",
+        "result": "W",
+        "us": "106",
+        "them": "100",
+        "extra": "",
+        "date": "Tue 10/20"
+      },
+      "live": null,
+      "next": {
+        "opp": "CLE",
+        "opp_name": "Cavaliers",
+        "opp_logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png",
+        "ha": "vs",
+        "label": "Next game",
+        "date": "Today",
+        "time": "7:00 PM",
+        "tv": "ESPN"
+      }
+    }
+  ],
+  "updated_at": "Thu 10/22 1:38 PM"
+}
